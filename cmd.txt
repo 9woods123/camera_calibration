@@ -1,0 +1,25 @@
+rosrun kalibr kalibr_calibrate_cameras \
+    --target /home/easy/easy_ws/kalibr/src/yaml_files/apil.yaml\
+    --bag /home/easy/easy_ws/kalibr/src/bag/camera_record_2025-07-29-15-21-41.bag\
+    --models pinhole-radtan pinhole-radtan\
+    --topics /camera/infra1/image_rect_raw /camera/infra2/image_rect_raw \
+    --show-extraction 
+
+
+rosrun kalibr kalibr_calibrate_imu_camera \
+    --target /home/easy/easy_ws/kalibr/src/yaml_files/apil.yaml\
+    --bag /home/easy/easy_ws/kalibr/src/camera_record_2025-07-29-14-38-35.bag\
+    --cam /home/easy/easy_ws/kalibr/src/camera_record_2025-07-29-14-38-35-camchain.yaml\
+    --imu /home/easy/easy_ws/kalibr/src/yaml_files/imu.yaml \
+    --show-extraction
+
+
+
+kalibr_calibrate_imu_camera \
+    --target checkerboard.yaml \
+    --bag calibration_data.bag \
+    --cam camchain-calibration_data.yaml \
+    --imu imu.yaml \
+    --bag-from-to 5 115 \
+    --show-extraction
+
