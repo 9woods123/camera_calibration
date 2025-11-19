@@ -44,14 +44,17 @@ libblas-dev liblapack-dev libv4l-dev libceres-dev
 1. 进入 **Kalibr** 目录并编译：
 
 ```bash
-cd kalibr
+mkdir -p calibration_ws/src
+cd calibration_ws/src
+git clone https://github.com/9woods123/camera_calibration.git
+cd ..
 catkin_make
 ```
 
 2. 配置环境：
 
 ```bash
-cd kalibr && source devel/setup.bash
+cd calibration_ws && source devel/setup.bash
 ```
 
 ---
