@@ -100,8 +100,8 @@ rosbag record /camera/infra1/image_raw /camera/infra2/image_raw /imu/data -O cam
 cd calibration_ws && source devel/setup.bash
 
 rosrun kalibr kalibr_calibrate_cameras \
-    --target /camera_calibration/kalibr/src/yaml_files/apil.yaml \
-    --bag /camera_calibration/kalibr/src/bag/camera_calibration.bag \
+    --target /camera_calibration/yaml_files/apil.yaml \
+    --bag /camera_calibration/rosbags/camera_calibration.bag \
     --models pinhole-radtan pinhole-radtan \
     --topics /camera/infra1/image_rect_raw /camera/infra2/image_rect_raw \
     --show-extraction
@@ -123,10 +123,10 @@ rosrun kalibr kalibr_calibrate_cameras \
 
 ```bash
 rosrun kalibr kalibr_calibrate_imu_camera \
-    --target /home/easy/easy_ws/kalibr/src/yaml_files/apil.yaml \
-    --bag /home/easy/easy_ws/kalibr/src/camera_calibration.bag \
-    --cam /home/easy/easy_ws/kalibr/src/camera_calibration-camchain.yaml \
-    --imu /home/easy/easy_ws/kalibr/src/yaml_files/imu.yaml \
+    --target /camera_calibration/yaml_files/apil.yaml \
+    --bag /camera_calibration/rosbags/camera_calibration.bag \
+    --cam /camera_calibration/camera_calibration-camchain.yaml \
+    --imu /camera_calibration/yaml_files/imu.yaml \
     --show-extraction
 ```
 
