@@ -24,7 +24,8 @@ python3 -m pip install catkin-pkg
 sudo apt-get install -y git wget autoconf automake nano \
 libeigen3-dev libboost-all-dev libsuitesparse-dev \
 doxygen libopencv-dev libpoco-dev libtbb-dev \
-libblas-dev liblapack-dev libv4l-dev libceres-dev
+libblas-dev liblapack-dev libv4l-dev libceres-dev \
+libdw-dev
 ```
 
 对于不同版本的 Ubuntu，请根据需要安装 Python 和相关依赖：
