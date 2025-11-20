@@ -107,6 +107,15 @@ rosrun kalibr kalibr_calibrate_cameras \
     --show-extraction
 ```
 
+```bash
+rosrun kalibr kalibr_calibrate_cameras \
+    --target /home/easy/easy_ws/camera_calibration/src/camera_calibration/yaml_files/apil.yaml \
+    --bag /home/easy/easy_ws/camera_calibration/src/camera_calibration/bags/camera_record_2025-11-20-17-37-53.bag.active \
+    --models pinhole-radtan pinhole-radtan \
+    --topics /camera/infra1/image_rect_raw /camera/infra2/image_rect_raw \
+    --show-extraction
+```
+
 ### 参数说明：
 
 * **--target**：标定目标的配置文件（通常为 `apil.yaml`）。
@@ -121,25 +130,30 @@ rosrun kalibr kalibr_calibrate_cameras \
 
 如果你需要同时标定 **IMU** 和 **相机** 的关系，可以使用以下命令进行联合标定：
 
+
+camera_calibration-camchain.yaml 需要通过上面的相机标定获得，所以需要先标定相机，再联合标定。
+
+先：
 ```bash
-rosrun kalibr kalibr_calibrate_imu_camera \
-    --target /camera_calibration/yaml_files/apil.yaml \
-    --bag /camera_calibration/rosbags/camera_calibration.bag \
-    --cam /camera_calibration/camera_calibration-camchain.yaml \
-    --imu /camera_calibration/yaml_files/imu.yaml \
+rosrun kalibr kalibr_calibrate_cameras \
+    --target /home/easy/easy_ws/camera_calibration/src/camera_calibration/yaml_files/apil.yaml \
+    --bag /home/easy/easy_ws/camera_calibration/src/camera_calibration/bags/camera_record_2025-11-20-17-37-53.bag.active \
+    --models pinhole-radtan pinhole-radtan \
+    --topics /camera/infra1/image_rect_raw /camera/infra2/image_rect_raw \
     --show-extraction
 ```
 
+再
 
 ```bash
-<!-- rosrun kalibr kalibr_calibrate_imu_camera \
+rosrun kalibr kalibr_calibrate_imu_camera \
     --target /home/easy/easy_ws/camera_calibration/src/camera_calibration/yaml_files/apil.yaml \
-    --bag /home/easy/easy_ws/camera_calibration/src/camera_calibration/bags/camera_record_2025-11-20-17-21-02.bag.active.bag \
+    --bag /home/easy/easy_ws/camera_calibration/src/camera_calibration/bags/camera_record_2025-11-20-17-37-53.bag.active \
     --cam /home/easy/easy_ws/camera_calibration/src/camera_calibration/camera_calibration-camchain.yaml \
     --imu /home/easy/easy_ws/camera_calibration/src/camera_calibration/yaml_files/imu.yaml \
-    --show-extraction -->
-
+    --show-extraction 
 ```
+
 ### 参数说明：
 
 * **--cam**：相机链配置文件，通常由 **kalibr_calibrate_cameras** 生成，格式为 `camchain.yaml`。
