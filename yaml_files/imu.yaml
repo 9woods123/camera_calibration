@@ -1,4 +1,7 @@
 #Accelerometers
+
+## 根据IMU 标定结果更新
+
 accelerometer_noise_density: 1.7070429879403243e-02   #Noise density (continuous-time)
 accelerometer_random_walk:   1.0802628849141355e-03   #Bias random walk
 

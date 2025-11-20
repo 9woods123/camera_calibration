@@ -130,6 +130,16 @@ rosrun kalibr kalibr_calibrate_imu_camera \
     --show-extraction
 ```
 
+
+```bash
+<!-- rosrun kalibr kalibr_calibrate_imu_camera \
+    --target /home/easy/easy_ws/camera_calibration/src/camera_calibration/yaml_files/apil.yaml \
+    --bag /home/easy/easy_ws/camera_calibration/src/camera_calibration/bags/camera_record_2025-11-20-17-21-02.bag.active.bag \
+    --cam /home/easy/easy_ws/camera_calibration/src/camera_calibration/camera_calibration-camchain.yaml \
+    --imu /home/easy/easy_ws/camera_calibration/src/camera_calibration/yaml_files/imu.yaml \
+    --show-extraction -->
+
+```
 ### 参数说明：
 
 * **--cam**：相机链配置文件，通常由 **kalibr_calibrate_cameras** 生成，格式为 `camchain.yaml`。
