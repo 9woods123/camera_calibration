@@ -39,6 +39,8 @@ imu_callback( const sensor_msgs::ImuConstPtr& imu_msg )
     //    m_buf.lock( );
     //    imu_buf.push( imu_msg );
     //    m_buf.unlock( );
+    std::cout<<"reading imu data"<<std::endl;
+
     double time = imu_msg->header.stamp.toSec( );
     gyr_x->pushRadPerSec( imu_msg->angular_velocity.x, time );
     gyr_y->pushRadPerSec( imu_msg->angular_velocity.y, time );
@@ -236,7 +238,7 @@ main( int argc, char** argv )
 
     //    ros::spin( );
     while ( !end )
-    {
+    {   
         loop.sleep( );
         ros::spinOnce( );
     }

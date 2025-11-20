@@ -77,14 +77,18 @@ Be careful of your roslaunch file:
 ```
 <launch>
     <node pkg="imu_utils" type="imu_an" name="imu_an" output="screen">
-        <param name="imu_topic" type="string" value= "/djiros/imu"/>
-        <param name="imu_name" type="string" value= "A3"/>
+        <param name="imu_topic" type="string" value= "/mavros/imu/data"/>
+        <param name="imu_name" type="string" value= "pixhwak"/>
         <param name="data_save_path" type="string" value= "$(find imu_utils)/data/"/>
-        <param name="max_time_min" type="int" value= "120"/>
+        
+        <param name="max_time_min" type="int" value= "100"/>
+        <!--    max_time_min   单位：分钟-->
+
         <param name="max_cluster" type="int" value= "100"/>
     </node>
 </launch>
 ```
+以pixhwak为例，运行完以后，数据会存在这个位置 $(find imu_utils)/data/pixhwak_imu_param.yaml
 
 ### sample output:
 

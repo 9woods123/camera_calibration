@@ -4,7 +4,7 @@
 *.o
 *.obj
 
-bag/*
+bags/*
 
 # Compiled Dynamic libraries
 *.so
